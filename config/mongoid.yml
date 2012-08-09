@@ -1,0 +1,17 @@
+development:
+  sessions:
+    default:
+      database: mongo_templates_development
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+  options:
+test:
+  sessions:
+    default:
+      database: mongo_templates_test
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
