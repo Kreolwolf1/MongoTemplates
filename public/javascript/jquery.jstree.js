@@ -77,7 +77,8 @@
 				}
 				else {
 					tmp.appendChild(document.createTextNode(opts.str));
-					//document.getElementsByTagName("head")[0].appendChild(tmp);
+					console.log($(tmp))
+					document.getElementsByTagName("head")[0].appendChild(tmp);
 				}
 				return tmp.sheet || tmp.styleSheet;
 			}
@@ -91,8 +92,7 @@
 					tmp.type	= 'text/css';
 					tmp.media	= "all";
 					tmp.href	= opts.url;
-					console.log(opts.url);
-					//document.getElementsByTagName("head")[0].appendChild(tmp);
+					document.getElementsByTagName("head")[0].appendChild(tmp);
 					return tmp;
 				}
 			}
@@ -1441,7 +1441,7 @@
 		_fn : {
 			set_theme : function (theme_name, theme_url) {
 				if(!theme_name) { return false; }
-				if(!theme_url) { theme_url = $.jstree._themes + theme_name + '/style.css'; }
+				if(!theme_url) { theme_url = '../../stylesheets/style.css'; }
 				if($.inArray(theme_url, themes_loaded) == -1) {
 					$.vakata.css.add_sheet({ "url" : theme_url });
 					themes_loaded.push(theme_url);
@@ -3518,6 +3518,7 @@
 		show	: function (s, t, x, y, d, p, rtl) {
 			$.vakata.context.rtl = !!rtl;
 			var html = $.vakata.context.parse(s), h, w;
+			console.log(s);
 			if(!html) { return; }
 			$.vakata.context.vis = true;
 			$.vakata.context.tgt = t;
@@ -3711,10 +3712,37 @@
 			show_at_node : true,
 			items : { // Could be a function that should return an object like this one
 				"create" : {
-					"separator_before"	: false,
-					"separator_after"	: true,
+					"separator_before"	: true,
+					"icon"				: false,
+					"separator_after"	: false,
 					"label"				: "Create",
-					"action"			: function (obj) { this.create(obj); }
+					"action"			: false,
+					"submenu" : {
+							"create_number" : {
+								"separator_before"	: false,
+								"separator_after"	: false,
+								"label"				: "Create number",
+								"action"			: function (obj) {	this.create_node(obj, "first", { "attr" : { "rel" : "number" } });  }
+							},
+							"create_text" : {
+								"separator_before"	: false,
+								"separator_after"	: false,
+								"label"				: "Create text",
+								"action"			: function (obj) {	this.create_node(obj, "first", { "attr" : { "rel" : "text" } });  }
+							},
+							"create_date" : {
+								"separator_before"	: false,
+								"separator_after"	: false,
+								"label"				: "Create date",
+								"action"			: function (obj) {	this.create_node(obj, "first", { "attr" : { "rel" : "date" } });  }
+							},
+							"create_folder" : {
+								"separator_before"	: false,
+								"separator_after"	: true,
+								"label"				: "Create folder",
+								"action"			: function (obj) {	this.create_node(obj, "first", { "attr" : { "rel" : "folder" } });  }
+							}
+					}
 				},
 				"rename" : {
 					"separator_before"	: false,
