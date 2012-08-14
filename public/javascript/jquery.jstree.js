@@ -3722,25 +3722,25 @@
 								"separator_before"	: false,
 								"separator_after"	: false,
 								"label"				: "Create number",
-								"action"			: function (obj) {	this.create_node(obj, "first", { "attr" : { "rel" : "number" } });  }
+								"action"			: function (obj) {	this.create_node(obj, "last", { "attr" : { "rel" : "number" } });  }
 							},
 							"create_text" : {
 								"separator_before"	: false,
 								"separator_after"	: false,
 								"label"				: "Create text",
-								"action"			: function (obj) {	this.create_node(obj, "first", { "attr" : { "rel" : "text" } });  }
+								"action"			: function (obj) {	this.create_node(obj, "last", { "attr" : { "rel" : "text" } });  }
 							},
 							"create_date" : {
 								"separator_before"	: false,
 								"separator_after"	: false,
 								"label"				: "Create date",
-								"action"			: function (obj) {	this.create_node(obj, "first", { "attr" : { "rel" : "date" } });  }
+								"action"			: function (obj) {	this.create_node(obj, "last", { "attr" : { "rel" : "date" } });  }
 							},
 							"create_folder" : {
 								"separator_before"	: false,
 								"separator_after"	: true,
 								"label"				: "Create folder",
-								"action"			: function (obj) {	this.create_node(obj, "first", { "attr" : { "rel" : "folder" } });  }
+								"action"			: function (obj) {	this.create_node(obj, "last", { "attr" : { "rel" : "folder" } });  }
 							}
 					}
 				},

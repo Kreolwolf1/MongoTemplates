@@ -5,6 +5,7 @@ MongoTemplates::Application.routes.draw do
     resources :templates do
       collection do
         get  :ajax_new
+        post :save_template
       end
     end
   end
